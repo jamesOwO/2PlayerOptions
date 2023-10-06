@@ -24,8 +24,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - player2
+  - player1
   - 
   - 
   - 
@@ -42,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2724342665
+    locked: 0
+  - name: Sprites
+    uniqueID: 1848475309
     locked: 0

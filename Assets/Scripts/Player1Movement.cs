@@ -20,15 +20,25 @@ public class Player1Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         
-        moveSpeed = 7f;
+        moveSpeed = 3f;
         jumpforce = 10f;
         coll = GetComponent<BoxCollider2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        movehorizontal = 0;
         // movement left and right
-        movehorizontal = Input.GetAxisRaw("Horizontal");
+        if (Input.GetKey(KeyCode.D))
+        {
+            movehorizontal = 1;
+        }
+        else if (Input.GetKey(KeyCode.A)) 
+        {
+            movehorizontal = -1;
+        }
+
+        
 
         rb.velocity = new Vector2(movehorizontal * moveSpeed, rb.velocity.y);
 
@@ -37,10 +47,25 @@ public class Player1Movement : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
-        if (movehorizontal < 0.1)
+        if (movehorizontal < -0.1)
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
+
+    }
+
+    private void Update()
+    {
+        if (movehorizontal!= 0)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+
+        }
+
 
         // jump
         if (Input.GetButtonDown("Jump"))
@@ -54,7 +79,6 @@ public class Player1Movement : MonoBehaviour
         if (IsGrounded() == true)
         {
             animator.SetBool("IsJumping", false);
-            animator.SetFloat("Speed", Mathf.Abs(movehorizontal));
         }
         else
         {
