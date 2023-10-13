@@ -12,8 +12,7 @@ public class LiftController : MonoBehaviour
     private bool liftup = false;
     private void Update()
     {
-
-        if (liftup)
+        if (liftup == true)
         {
             if (lift.transform.position.y <= topheight)
             {
@@ -27,14 +26,22 @@ public class LiftController : MonoBehaviour
                 lift.transform.position += -transform.up * speed * Time.deltaTime;
             }
         }
-        liftup = false;
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player1")
         {
             Debug.Log("up");
             liftup = true;
+        }
+
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player1")
+        {
+            Debug.Log("Down");
+            liftup = false;
         }
     }
 }

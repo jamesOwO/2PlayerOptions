@@ -21,7 +21,7 @@ public class Player1Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         
         moveSpeed = 3f;
-        jumpforce = 10f;
+        jumpforce = 5f;
         coll = GetComponent<BoxCollider2D>();
     }
 
