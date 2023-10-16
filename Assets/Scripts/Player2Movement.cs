@@ -9,7 +9,7 @@ public class Player2Movement : MonoBehaviour
     private float moveSpeed;
     private float movehorizontal;
     private float movevertical;
-    public Animator animator;
+    //public Animator animator;
     private BoxCollider2D coll;
 
 
@@ -62,5 +62,11 @@ public class Player2Movement : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Pickup")
+        {
+        }
     }
 }

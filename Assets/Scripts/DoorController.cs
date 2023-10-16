@@ -9,6 +9,7 @@ public class DoorController : MonoBehaviour
     public int bottomheight;
     public int topheight;
     public float speed;
+    public Animator animator;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -35,6 +36,7 @@ public class DoorController : MonoBehaviour
         if (collision.tag == "Player1" || collision.tag == "Player2")
         {
             openDoor = true;
+            animator.SetBool("ButtonOn", true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -42,6 +44,8 @@ public class DoorController : MonoBehaviour
         if (collision.tag == "Player1" || collision.tag == "Player2")
         {
             openDoor = false;
+            animator.SetBool("ButtonOn", false);
+
         }
     }
 
