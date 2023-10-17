@@ -15,6 +15,7 @@ public class Player1Movement : MonoBehaviour
     private BoxCollider2D coll;
     [SerializeField] private LayerMask jumpableGround;
 
+    public float tpCooldown = 0;
 
     void Start()
     {
@@ -90,4 +91,5 @@ public class Player1Movement : MonoBehaviour
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .01f, jumpableGround);
     }
+
 }
