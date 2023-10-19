@@ -9,7 +9,7 @@ public class Player1Movement : MonoBehaviour
     private float moveSpeed;
     private float movehorizontal;
     private float movevertical;
-    private float jumpforce;
+    public float jumpforce;
     private bool isjumping;
     public Animator animator;
     private BoxCollider2D coll;
@@ -22,7 +22,6 @@ public class Player1Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         
         moveSpeed = 3f;
-        jumpforce = 5f;
         coll = GetComponent<BoxCollider2D>();
     }
 
