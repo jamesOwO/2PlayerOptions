@@ -11,6 +11,7 @@ public class Player2Movement : MonoBehaviour
     private float movevertical;
     //public Animator animator;
     private BoxCollider2D coll;
+    private bool facingRight = true;
 
 
     void Start()
@@ -47,13 +48,13 @@ public class Player2Movement : MonoBehaviour
         rb.velocity = new Vector2(movehorizontal * moveSpeed, movevertical * moveSpeed);
 
         // faces direction of movement
-        if (movehorizontal > 0.1)
+        if (movehorizontal > 0.1 && !facingRight)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            flip();
         }
-        if (movehorizontal < -0.1)
+        if (movehorizontal < -0.1 && facingRight)
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            flip();
         }
 
     }
@@ -63,6 +64,17 @@ public class Player2Movement : MonoBehaviour
     {
         
     }
+
+    private void flip()
+    {
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+
+        facingRight = !facingRight;
+
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Pickup")
