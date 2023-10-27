@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 public class Player2Movement : MonoBehaviour
 {
@@ -62,7 +63,12 @@ public class Player2Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+
+        }
+
     }
 
     private void flip()
@@ -75,10 +81,13 @@ public class Player2Movement : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Pickup")
+        if (collision.gameObject.tag == "Water" || collision.gameObject.tag == "Projectile")
         {
+            SceneManager.LoadScene(0);
+
         }
+
     }
 }

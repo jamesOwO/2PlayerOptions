@@ -7,6 +7,10 @@ TagManager:
   - Player1
   - Player2
   - Lift
+  - Box
+  - Border
+  - LillyPad
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -16,11 +20,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Border
+  - Water
   - Ground
-  - 
-  - 
+  - PickUpLilly
+  - LillyPad
   - Crate
   - 
   - 
@@ -43,6 +47,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Border
+    uniqueID: 79070789
     locked: 0
   - name: Background
     uniqueID: 2724342665

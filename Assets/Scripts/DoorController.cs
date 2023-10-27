@@ -33,7 +33,7 @@ public class DoorController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Button ON");
-        if (collision.tag == "Player1" || collision.tag == "Player2")
+        if (collision.tag == "Player1" || collision.tag == "Player2" || collision.tag == "Box")
         {
             openDoor = true;
             animator.SetBool("ButtonOn", true);
@@ -41,7 +41,7 @@ public class DoorController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player1" || collision.tag == "Player2")
+        if (collision.tag == "Player1" || collision.tag == "Player2" || collision.tag == "Box")
         {
             openDoor = false;
             animator.SetBool("ButtonOn", false);
